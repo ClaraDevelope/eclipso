@@ -1,3 +1,4 @@
+/* Menú para pantallas grandes (lo que ya tienes) */
 .menu {
   margin: 0 auto;
   margin-top: 20px;
@@ -11,6 +12,7 @@
   background-color: var(--color-menu-fondo);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
+
 .menu a {
   color: var(--color-fuente-principal);
   font-weight: 500;
@@ -30,6 +32,55 @@
   backdrop-filter: blur(8px);
   background-color: #010101c3;
   z-index: 10;
-  /* width: 100%;  */
   padding: 10px 20px;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) {
+  .menu {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 0;
+    gap: 1.5rem;
+    display: none;
+    margin-top: 3rem;
+  }
+
+  .menu.open {
+    display: flex;
+  }
+
+  .menu a {
+    font-size: 1.2rem;
+  }
+
+  .menu.scrolled {
+    padding: 10px 20px;
+    width: 100%;
+    backdrop-filter: blur(8px);
+    background-color: #010101c3;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    margin: 0.5rem;
+    width: 30px;
+    height: 25px;
+    position: relative;
+  }
+
+  .hamburger:before {
+    content: '☰';
+    font-size: 2rem;
+    padding: 1rem 1.3rem;
+    border-radius: 50%;
+    background-color: var(--color-menu-fondo);
+    color: var(--color-fuente-principal);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }

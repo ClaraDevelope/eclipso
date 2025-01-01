@@ -13,5 +13,11 @@
   font-family: 'Monofett', serif;
   font-size: 5rem;
   color: #ff4479;
-  /* color: #ed1452; */
+}
+
+@media (max-width: 768px) {
+  .title-container {
+    margin-top: 3rem;
+    padding-left: 2rem;
+  }
 }
