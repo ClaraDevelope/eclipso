@@ -1,0 +1,35 @@
+.menu {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 550px;
+  padding: 18px;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--color-menu-fondo);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+.menu a {
+  color: var(--color-fuente-principal);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu a:hover {
+  color: var(--color-fuente-enfatizada);
+}
+
+.menu.scrolled {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  backdrop-filter: blur(8px);
+  background-color: #010101c3;
+  z-index: 10;
+  /* width: 100%;  */
+  padding: 10px 20px;
+}

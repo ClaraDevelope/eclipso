@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Monofett&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+.title-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-left: 5rem;
+}
+.title {
+  font-family: 'Monofett', serif;
+  font-size: 5rem;
+  color: #ff4479;
+  /* color: #ed1452; */
+}

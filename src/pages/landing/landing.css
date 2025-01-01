@@ -1,0 +1,122 @@
+.landing-container {
+  display: flex;
+  max-width: 850px;
+  height: 650px;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 5px;
+  background-color: transparent;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.box {
+  z-index: 1;
+  background: -webkit-linear-gradient(to right, #ffae22, #cb9e2d);
+  background: linear-gradient(to right, #efd73a, #cb812d);
+  color: var(--color-fuente-orcura);
+  font-weight: 500;
+  border-radius: 8px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25), 0 1px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 10px;
+  padding-top: 0;
+  animation: fadeIn 0.7s ease-out;
+}
+.box:hover {
+  filter: brightness(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.box img {
+  border-radius: 14px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  padding: 5px;
+  padding-top: 0;
+}
+
+.box p {
+  /* border-bottom: 2px solid var(--color-enlace); */
+  padding-right: 5px;
+  padding-bottom: 5px;
+  margin: 10px 0;
+  /* height: auto; */
+  float: left;
+}
+
+.contact-button,
+.register-button {
+  margin-top: 1rem;
+  background-color: var(--color-seccion-oscura);
+  color: var(--color-fuente-principal);
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-button:hover,
+.register-button:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.1);
+  color: #000000;
+  background-color: var(--color-enlace);
+}
+strong {
+  color: var(--color-fuente-azul-fondo);
+}
+
+@media (max-width: 768px) {
+  .landing-container {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+  }
+
+  .box {
+    padding: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .contact-button {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}

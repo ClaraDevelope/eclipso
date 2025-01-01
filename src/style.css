@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  /* Colores principales */
+  --color-fuente-principal: #d0cece; /* Gris muy claro para el texto general */
+  --color-fuente-secundaria: #b0b0b0; /* Gris medio para texto secundario */
+  --color-fuente-orcura: rgb(50, 47, 47); /*más negro*/
+  --color-fuente-azul-fondo: #0f0c29;
+  --color-fuente-enfatizada: #ffae22; /* Blanco suave para títulos y texto destacado */
+
+  /* Colores para fondos */
+  /* --color-menu-fondo: #514f4fc0; Gris oscuro para el fondo del menú */
+  --color-fondo: #24243e;
+  --color-menu-fondo: #010101c0;
+  --color-seccion-fondo: #505058; /* Gris oscuro, pero con un toque más cálido para otras secciones */
+  --color-seccion-oscura: #1c1c1e; /* Gris aún más oscuro para resaltar secciones específicas */
+  --color-boton-fondo: #302b63; /* Un morado oscuro para botones o elementos activos */
+
+  /* Colores para detalles o interactividad */
+  --color-enlace: #ff4479;
+  --color-enlace-hover: #b39dd1; /* Color para cuando el enlace se pasa por encima */
+
+  /* Colores para los bordes */
+  --color-borde: #494949; /* Gris medio para bordes sutiles */
+  --color-borde-activo: #8653ab; /* Morado para los bordes activos o de enfoque */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', serif;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body,
+#app {
+  min-height: 100svh;
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  position: relative;
+}
