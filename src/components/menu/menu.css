@@ -74,7 +74,7 @@
 
   .hamburger:before {
     content: '☰';
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 1rem 1.3rem;
     border-radius: 50%;
     background-color: var(--color-menu-fondo);
