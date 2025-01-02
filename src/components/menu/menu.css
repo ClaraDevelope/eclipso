@@ -1,4 +1,3 @@
-/* Menú para pantallas grandes (lo que ya tienes) */
 .menu {
   margin: 0 auto;
   margin-top: 20px;
@@ -23,7 +22,10 @@
 .menu a:hover {
   color: var(--color-fuente-enfatizada);
 }
-
+a.login {
+  color: var(--color-enlace);
+  font-weight: 800;
+}
 .menu.scrolled {
   position: fixed;
   top: 0;
@@ -41,7 +43,6 @@
   backdrop-filter: blur(8px);
 }
 
-/* Media Query para dispositivos móviles */
 @media (max-width: 768px) {
   .menu {
     width: 100%;

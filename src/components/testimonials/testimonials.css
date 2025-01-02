@@ -8,10 +8,6 @@
     #ff1361 67%,
     #fff800 100%
   );
-  /* background: linear-gradient(236deg, #ffae22 -10%, #0f0c29 100%); */
-  /* background: var(--color-fondo); */
-  /* border-radius: 12px; */
-  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
   display: flex;
   flex-direction: column;
 }

@@ -1,5 +1,7 @@
+import { createFaq } from '../../components/FaQ/FaQ';
 import { createTestimonials } from '../../components/testimonials/testimonials';
 import { createTitle } from '../../components/title/title';
+import { faqs } from '../../data/Faqs';
 import './landing.css';
 
 export const createLandingPage = () => {
@@ -58,19 +60,17 @@ export const createLandingPage = () => {
   const content5 = document.createElement('p');
   content5.innerHTML = "<strong>Regístrese ahora</strong> y asegure su lugar en el próximo evento diseñado para inspirar e innovar.";
   
-  // Crear el botón de registro
   const registerButton = document.createElement('button');
   registerButton.classList.add('register-button');
   registerButton.innerText = 'Regístrate ahora';
-  
-  // Aquí agregamos una acción al botón (por ejemplo, redirigir a una página de registro)
+
   registerButton.onclick = () => {
-    window.location.href = '/registro'; // Aquí cambias la URL a la página de registro
+    window.location.href = '/registro';
   };
   
   box5.appendChild(img5);
   box5.appendChild(content5);
-  box5.appendChild(registerButton); // Agregar el botón al box5
+  box5.appendChild(registerButton); 
 
   grid.appendChild(box1);
   grid.appendChild(box2);
@@ -82,4 +82,5 @@ export const createLandingPage = () => {
 
   app.appendChild(landingContainer);
   createTestimonials();
+  createFaq(faqs)
 };

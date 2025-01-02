@@ -1,0 +1,30 @@
+footer {
+  background-color: transparent;
+  color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* border-top: 2px solid #ffd700; */
+}
+
+footer p {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+footer a {
+  color: #ffd700;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--color-enlace);
+}

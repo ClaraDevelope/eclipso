@@ -63,16 +63,14 @@
 }
 
 .box p {
-  /* border-bottom: 2px solid var(--color-enlace); */
   padding-right: 5px;
   padding-bottom: 5px;
   margin: 10px 0;
-  /* height: auto; */
-  float: left;
 }
 
 .contact-button,
 .register-button {
+  font-size: 1rem;
   margin-top: 1rem;
   background-color: var(--color-seccion-oscura);
   color: var(--color-fuente-principal);

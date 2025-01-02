@@ -6,23 +6,25 @@ export const createMenu = (authLinks, noAuthLinks) => {
   const nav = document.createElement('nav');
   nav.classList.add('menu');
 
-  // Crear enlaces según el estado de autenticación
   const links = isAuth() ? authLinks : noAuthLinks;
   links.forEach(link => {
     const a = document.createElement('a');
     a.textContent = link;
     a.href = `#${link.toLowerCase().replace(' ', '-')}`;
     nav.appendChild(a);
+    
+    if(a.textContent === 'Acceder'){
+      a.classList.add('login')
+    }
   });
 
-  // Crear el botón de menú hamburguesa para móviles
   const hamburger = document.createElement('div');
   hamburger.classList.add('hamburger');
   hamburger.addEventListener('click', () => {
-    nav.classList.toggle('open'); // Toggle para abrir/cerrar el menú
+    nav.classList.toggle('open');
   });
 
-  app.appendChild(hamburger); // Añadir el botón hamburguesa a la página
+  app.appendChild(hamburger); 
   app.appendChild(nav);
 
   window.addEventListener('scroll', () => {
