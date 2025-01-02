@@ -1,7 +1,7 @@
 .menu {
   margin: 0 auto;
   margin-top: 20px;
-  width: 550px;
+  width: 500px;
   padding: 18px;
   border-radius: 40px;
   display: flex;
@@ -11,7 +11,9 @@
   background-color: var(--color-menu-fondo);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
-
+.menu.auth {
+  width: 700px;
+}
 .menu a {
   color: var(--color-fuente-principal);
   font-weight: 500;

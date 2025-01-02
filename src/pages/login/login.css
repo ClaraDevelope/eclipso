@@ -1,0 +1,79 @@
+.login-container {
+  width: 100%;
+  max-width: 450px;
+  margin: 150px auto;
+  padding: 25px;
+  background-color: var(--color-seccion-oscura);
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: var(--color-fuente-principal);
+  overflow-y: hidden;
+}
+
+.login-title {
+  font-size: 1.5rem;
+  color: var(--color-fuente-enfatizada);
+  margin-bottom: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Estilos de los inputs */
+.email-input,
+.password-input {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+  outline: none;
+  font-weight: 500;
+  transition: border-color 0.3s ease;
+  background-color: var(--color-seccion-fondo);
+  color: var(--color-fuente-principal);
+}
+.email-input::placeholder,
+.password-input::placeholder {
+  color: var(--color-fuente-principal);
+}
+
+.email-input:focus,
+.password-input:focus {
+  border-color: var(--color-fuente-enfatizada);
+}
+
+.login-button {
+  padding: 12px;
+  background-color: var(--color-boton-fondo);
+  color: var(--color-fuente-principal);
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #433c82;
+}
+
+.register-text {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: var(--color-fuente-secundaria);
+}
+
+.register-link {
+  color: var(--color-enlace);
+  text-decoration: none;
+}
+
+.register-link:hover {
+  color: var(--color-enlace-hover);
+  text-decoration: underline;
+}

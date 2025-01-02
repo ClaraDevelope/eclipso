@@ -1,11 +1,13 @@
 import { createLandingPage } from '../pages/landing/landing';
 import { createLoginPage } from '../pages/login/login';
+import { logout } from '../utils/logOut';
 
 export const initRouter = () => {
   const app = document.getElementById('app');
   const routes = {
     '#landing': createLandingPage,
     '#acceder': createLoginPage,
+    '#salir': logout
   };
 
   // Detecta cambios en el hash y actualiza solo el contenido dentro del contenedor dinámico

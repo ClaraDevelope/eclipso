@@ -7,6 +7,7 @@ export const createMenu = (authLinks, noAuthLinks) => {
   nav.classList.add('menu');
 
   const links = isAuth() ? authLinks : noAuthLinks;
+  isAuth() ? nav.classList.add('auth') : nav.classList.remove('auth');
   links.forEach((link) => {
     const a = document.createElement('a');
     a.textContent = link;
