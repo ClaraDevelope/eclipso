@@ -7,14 +7,14 @@ export const createMenu = (authLinks, noAuthLinks) => {
   nav.classList.add('menu');
 
   const links = isAuth() ? authLinks : noAuthLinks;
-  links.forEach(link => {
+  links.forEach((link) => {
     const a = document.createElement('a');
     a.textContent = link;
     a.href = `#${link.toLowerCase().replace(' ', '-')}`;
     nav.appendChild(a);
-    
-    if(a.textContent === 'Acceder'){
-      a.classList.add('login')
+
+    if (a.textContent === 'Acceder') {
+      a.classList.add('login');
     }
   });
 
@@ -24,16 +24,16 @@ export const createMenu = (authLinks, noAuthLinks) => {
     nav.classList.toggle('open');
   });
 
-  app.appendChild(hamburger); 
+  app.appendChild(hamburger);
   app.appendChild(nav);
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 0) {
       nav.classList.add('scrolled');
-      hamburger.classList.add('scrolled')
+      hamburger.classList.add('scrolled');
     } else {
       nav.classList.remove('scrolled');
-      hamburger.classList.remove('scrolled')
+      hamburger.classList.remove('scrolled');
     }
   });
 };

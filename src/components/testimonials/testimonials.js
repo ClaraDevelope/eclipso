@@ -1,7 +1,7 @@
 import './testimonials.css';
 
 export const createTestimonials = () => {
-  const app = document.getElementById('app');
+  const pageContainer = document.querySelector('.page-container');
   const testimonialSection = document.createElement('div');
   testimonialSection.classList.add('testimonial-section');
 
@@ -30,7 +30,6 @@ export const createTestimonials = () => {
     },
   ];
 
-  // Crear cada testimonio
   testimonials.forEach(({ avatar, text, name }) => {
     const testimonialBox = document.createElement('div');
     testimonialBox.classList.add('testimonial-box');
@@ -62,5 +61,5 @@ export const createTestimonials = () => {
   testimonialSection.appendChild(testimonialContainer);
 
   // Añadir la sección a la landing
-  app.appendChild(testimonialSection);
+  pageContainer.appendChild(testimonialSection);
 };

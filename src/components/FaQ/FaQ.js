@@ -1,7 +1,7 @@
 import './Faq.css';
 
 export const createFaq = (faqs) => {
-  const app = document.querySelector('#app');
+  const pageContainer = document.querySelector('.page-container');
   const faqContainer = document.createElement('section');
   faqContainer.classList.add('faq-section');
 
@@ -42,5 +42,5 @@ export const createFaq = (faqs) => {
   });
 
   faqContainer.appendChild(faqGrid);
-  app.appendChild(faqContainer);
+  pageContainer.appendChild(faqContainer);
 };

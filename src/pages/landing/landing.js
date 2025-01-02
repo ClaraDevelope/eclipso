@@ -6,7 +6,21 @@ import './landing.css';
 
 export const createLandingPage = () => {
   const app = document.getElementById('app');
-  createTitle()
+  
+  let pageContainer = document.querySelector('.page-container');
+  if (!pageContainer) {
+    pageContainer = document.createElement('div');
+    pageContainer.classList.add('page-container');
+    app.appendChild(pageContainer);
+  } else {
+    const existingGrid = pageContainer.querySelector('.grid');
+    if (existingGrid) {
+      existingGrid.innerHTML = '';
+    }
+  }
+
+  createTitle();
+
   const landingContainer = document.createElement('div');
   landingContainer.classList.add('landing-container');
 
@@ -18,7 +32,7 @@ export const createLandingPage = () => {
   box1.style.gridColumn = 'span 2';
   box1.style.gridRow = 'span 1';
   const content1 = document.createElement('p');
-  content1.innerHTML = "Descubra <strong>eventos exclusivos</strong> para compartir conocimientos, inspirarse y crecer junto a su comunidad.";
+  content1.innerHTML = "Descubra <strong>eventos cerca de ti</strong> para compartir conocimientos, inspirarse y crecer junto a su comunidad.";
   box1.appendChild(content1);
 
   const box2 = document.createElement('div');
@@ -35,9 +49,9 @@ export const createLandingPage = () => {
   box3.style.gridRow = 'span 3';
   const content3 = document.createElement('p');
   content3.innerHTML = "<strong>¿Tienes una pasión o idea que quieras compartir?</strong> Propon tu evento ideal y lo haremos posible.";
-  const contactButton = document.createElement('button')
-  contactButton.classList.add('contact-button')
-  contactButton.innerText = 'Contactanos'
+  const contactButton = document.createElement('button');
+  contactButton.classList.add('contact-button');
+  contactButton.innerText = 'Contactanos';
   box3.append(content3, contactButton);
 
   const box4 = document.createElement('div');
@@ -79,8 +93,8 @@ export const createLandingPage = () => {
   grid.appendChild(box5);
 
   landingContainer.appendChild(grid);
+  pageContainer.appendChild(landingContainer);
 
-  app.appendChild(landingContainer);
   createTestimonials();
-  createFaq(faqs)
+  createFaq(faqs);
 };
