@@ -28,8 +28,10 @@ export const createMenu = (authLinks, noAuthLinks) => {
   window.addEventListener('scroll', () => {
     if (window.scrollY > 0) {
       nav.classList.add('scrolled');
+      hamburger.classList.add('scrolled')
     } else {
       nav.classList.remove('scrolled');
+      hamburger.classList.remove('scrolled')
     }
   });
 };

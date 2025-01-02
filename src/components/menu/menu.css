@@ -34,6 +34,12 @@
   z-index: 10;
   padding: 10px 20px;
 }
+.hamburger.scrolled {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(8px);
+}
 
 /* Media Query para dispositivos móviles */
 @media (max-width: 768px) {
@@ -45,22 +51,19 @@
     border-radius: 0;
     gap: 1.5rem;
     display: none;
-    margin-top: 3rem;
+    margin-top: 2.3rem;
   }
 
   .menu.open {
     display: flex;
   }
 
-  .menu a {
-    font-size: 1.2rem;
-  }
-
   .menu.scrolled {
-    padding: 10px 20px;
-    width: 100%;
+    padding: 10px;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     backdrop-filter: blur(8px);
-    background-color: #010101c3;
   }
 
   .hamburger {
