@@ -25,7 +25,7 @@ export const loginFetch = async (email, password) => {
       if (data.token) {
         saveToken(data.token);
         console.log('Token de inicio de sesión:', data.token);
-        window.location.hash = '#landing';
+        window.location.hash = '/landing';
         window.location.reload();
       }
     }, 2000); // Retraso de 2 segundos (2000ms)
