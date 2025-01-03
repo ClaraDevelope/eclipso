@@ -32,7 +32,7 @@ export const createLoginPage = () => {
 
   const registerText = document.createElement('p');
   registerText.classList.add('register-text');
-  registerText.innerHTML = '¿No tienes cuenta? <a href="/register" class="register-link">Regístrate aquí</a>';
+  registerText.innerHTML = '¿No tienes cuenta? <a href="/registro" class="register-link">Regístrate aquí</a>';
 
 
   loginButton.addEventListener('click', (event) => {

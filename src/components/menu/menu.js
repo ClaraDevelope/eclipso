@@ -1,4 +1,5 @@
-import { isAuth } from '../../utils/isAuth';
+import { handleRouteChange } from '../../routes/routes';
+import { isAuth } from '../../utils/isAuth'; 
 import './menu.css';
 
 export const createMenu = (authLinks, noAuthLinks) => {
@@ -11,12 +12,20 @@ export const createMenu = (authLinks, noAuthLinks) => {
   links.forEach((link) => {
     const a = document.createElement('a');
     a.textContent = link;
-    a.href = `#${link.toLowerCase().replace(' ', '-')}`;
+    a.href = `/${link.toLowerCase().replace(' ', '-')}`;  // Aquí cambiamos solo el símbolo #
     nav.appendChild(a);
 
     if (a.textContent === 'Acceder') {
       a.classList.add('login');
     }
+
+    // Añadimos el evento de click para manejar la navegación y el cambio de ruta
+    a.addEventListener('click', (e) => {
+      e.preventDefault();  // Prevenimos la acción por defecto
+      const path = a.getAttribute('href');  // Obtenemos el href
+      window.history.pushState({}, '', path);  // Cambiamos la URL sin recargar
+      handleRouteChange();  // Actualizamos el contenido basado en la nueva URL
+    });
   });
 
   const hamburger = document.createElement('div');

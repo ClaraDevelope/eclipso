@@ -1,0 +1,137 @@
+.register-container {
+  width: 100%;
+  max-width: 450px;
+  margin: 150px auto 0 auto;
+  padding: 25px;
+  background-color: var(--color-seccion-oscura);
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: var(--color-fuente-principal);
+  overflow-y: hidden;
+}
+
+.register-title {
+  font-size: 1.5rem;
+  color: var(--color-fuente-enfatizada);
+  margin-bottom: 20px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Estilos de los inputs */
+.email-input,
+.password-input,
+.name-input,
+.confirm-password-input,
+.phone-input,
+.birthdate-input {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+  outline: none;
+  font-weight: 500;
+  transition: border-color 0.3s ease;
+  background-color: var(--color-seccion-fondo);
+  color: var(--color-fuente-principal);
+}
+.email-input::placeholder,
+.password-input::placeholder,
+.name-input::placeholder,
+.confirm-password-input::placeholder,
+.phone-input::placeholder,
+.birthdate-input::placeholder {
+  color: var(--color-fuente-principal);
+}
+
+.email-input:focus,
+.password-input:focus {
+  border-color: var(--color-fuente-enfatizada);
+}
+
+.register-button {
+  padding: 12px;
+  background-color: var(--color-boton-fondo);
+  color: var(--color-fuente-principal);
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #433c82;
+}
+
+.login-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: var(--color-fuente-secundaria);
+}
+
+.login-link {
+  color: var(--color-enlace);
+  text-decoration: none;
+}
+
+.login-link:hover {
+  color: var(--color-enlace-hover);
+  text-decoration: underline;
+}
+
+.form-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.form-step {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: slide-in 0.3s ease-in-out;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.form-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.prev-button,
+.next-button,
+.submit-button {
+  padding: 12px;
+  background-color: var(--color-boton-fondo);
+  color: var(--color-fuente-principal);
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.prev-button:hover,
+.next-button:hover,
+.submit-button:hover {
+  background-color: #433c82;
+}

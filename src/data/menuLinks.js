@@ -1,2 +1,2 @@
-export const authLinks = ['Perfil', 'Mis eventos', 'Notificaciones', 'Nuevo evento', 'Salir'];
-export const noAuthLinks = ['Explorar', 'Sobre la comunidad' , 'Acceder'];
+export const authLinks = ['Perfil', 'Explora', 'Notificaciones', 'Mis eventos', 'Salir'];
+export const noAuthLinks = ['Explora', 'Sobre la comunidad' , 'Acceder'];

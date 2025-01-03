@@ -1,6 +1,7 @@
 /* skeleton.css */
 .skeleton-container {
-  width: 80%;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,7 +11,7 @@
 }
 
 .skeleton-loader {
-  background-color: #666; /* Gris mucho más oscuro */
+  background-color: #666;
   border-radius: 4px;
   position: relative;
   overflow: hidden;

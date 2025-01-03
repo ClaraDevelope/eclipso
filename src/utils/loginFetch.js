@@ -8,21 +8,25 @@ export const loginFetch = async (email, password) => {
   try {
     const loginContainer = document.querySelector('.login-container');
     if (loginContainer) {
-      loginContainer.remove(); // Eliminar el contenedor del formulario de login
+      loginContainer.remove(); 
     }
-    // Mostrar el skeleton cuando se hace la petición
+    const registerContainer = document.querySelector('.register-container');
+    const loginText = document.querySelector('.login-text');
+    if (registerContainer && loginText) {
+      registerContainer.remove();
+      loginText.remove();
+    }
+
     createSkeleton(); // Mostrar el loading skeleton antes de la petición
 
     // Simular retraso con setTimeout (para ver el loading)
     setTimeout(async () => {
       const data = await request('/auth/login', 'POST', { email, password });
-
-      // Si la petición es exitosa
       if (data.token) {
         saveToken(data.token);
         console.log('Token de inicio de sesión:', data.token);
         window.location.hash = '#landing';
-        window.location.reload(); // Recargar la página
+        window.location.reload();
       }
     }, 2000); // Retraso de 2 segundos (2000ms)
 

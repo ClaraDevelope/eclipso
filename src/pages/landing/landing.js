@@ -6,7 +6,6 @@ import './landing.css';
 
 export const createLandingPage = () => {
   const app = document.getElementById('app');
-  
   let pageContainer = document.querySelector('.page-container');
   if (!pageContainer) {
     pageContainer = document.createElement('div');
@@ -75,7 +74,7 @@ export const createLandingPage = () => {
   content5.innerHTML = "<strong>Regístrese ahora</strong> y asegure su lugar en el próximo evento diseñado para inspirar e innovar.";
   
   const registerButton = document.createElement('button');
-  registerButton.classList.add('register-button');
+  registerButton.classList.add('register-landing-button');
   registerButton.innerText = 'Regístrate ahora';
 
   registerButton.onclick = () => {

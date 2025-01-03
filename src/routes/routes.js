@@ -1,36 +1,45 @@
 import { createLandingPage } from '../pages/landing/landing';
 import { createLoginPage } from '../pages/login/login';
+import { createRegisterPage } from '../pages/register/register';
 import { logout } from '../utils/logOut';
 
-export const initRouter = () => {
+export const handleRouteChange = () => {
   const app = document.getElementById('app');
   const routes = {
-    '#landing': createLandingPage,
-    '#acceder': createLoginPage,
-    '#salir': logout
+    '/landing': createLandingPage,
+    '/acceder': createLoginPage,
+    '/registro': createRegisterPage,
+    '/salir': logout
   };
 
-  // Detecta cambios en el hash y actualiza solo el contenido dentro del contenedor dinámico
-  const handleRouteChange = () => {
-    const hash = window.location.hash || '#landing';
-    const pageContainer = document.querySelector('.page-container'); // Seleccionamos el contenedor de la landing
+  let pageContainer = document.querySelector('.page-container');
 
-    if (pageContainer) {
-      pageContainer.innerHTML = ''; // Limpiamos solo el contenido dinámico de la página
-    }
+  if (!pageContainer) {
+    pageContainer = document.createElement('div');
+    pageContainer.classList.add('page-container');
+    app.appendChild(pageContainer);
+  }
 
-    const route = routes[hash];
+  pageContainer.innerHTML = ''; // Limpiamos el contenido dinámico
 
-    if (route) {
-      route(); // Cargamos la página correspondiente
-    } else {
-      pageContainer.innerHTML = '<h1>404 - Página no encontrada</h1>';
-    }
-  };
+  const path = window.location.pathname;  // Tomamos el pathname de la URL
+  const route = routes[path];
 
+  if (route) {
+    route(); // Cargar la página correspondiente
+  } else {
+    pageContainer.innerHTML = '<h1>404 - Página no encontrada</h1>';
+  }
+};
 
-  window.addEventListener('hashchange', handleRouteChange);
+export const initRouter = () => {
+  // Cargar la ruta inicial (si la página se carga por primera vez)
+  if (window.location.pathname === '/') {
+    window.history.replaceState({}, '', '/landing');  // Forzar la URL correcta para la página inicial
+  }
 
-  // Carga la ruta inicial
-  handleRouteChange();
+  // Añadir un listener para los cambios en la URL (cuando se navega usando el navegador)
+  window.addEventListener('popstate', handleRouteChange);
+
+  handleRouteChange();  // Llamamos a la función para cargar la ruta inicial
 };
