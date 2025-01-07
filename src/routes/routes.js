@@ -7,11 +7,11 @@ import { logout } from '../utils/logOut';
 export const handleRouteChange = () => {
   const app = document.getElementById('app');
   const routes = {
-    '/landing': createLandingPage,
-    '/acceder': createLoginPage,
-    '/registro': createRegisterPage,
-    '/salir': logout,
-    '/explora': createExploraPage
+    'landing': createLandingPage,
+    'acceder': createLoginPage,
+    'registro': createRegisterPage,
+    'salir': logout,
+    'explora': createExploraPage
   };
 
   let pageContainer = document.querySelector('.page-container');
@@ -24,14 +24,15 @@ export const handleRouteChange = () => {
 
   pageContainer.innerHTML = ''; // Limpiamos el contenido dinámico
 
-  // Detectar si el dispositivo es móvil o no
-  const isMobile = window.innerWidth <= 768;  // Ajusta este valor según necesites
+  const isMobile = window.innerWidth <= 768;  // Ajusta este valor según sea necesario
 
   let path;
   if (isMobile) {
-    path = window.location.hash.slice(1);  // Para móviles, usar hash
+    // Usar hash para móviles
+    path = window.location.hash.slice(1);  // Eliminar el `#` de la URL
   } else {
-    path = window.location.pathname;  // Para PC, usar pathname
+    // Usar pathname para PC
+    path = window.location.pathname.slice(1);  // Eliminar el `/` de la URL
   }
 
   const route = routes[path];
@@ -51,7 +52,16 @@ export const initRouter = () => {
 
   // Añadir un listener para los cambios en la URL (cuando se navega usando el navegador)
   window.addEventListener('popstate', handleRouteChange);
-  window.addEventListener('hashchange', handleRouteChange); // Detectar cambio de hash en móviles
+  
+  // Añadir un listener para los cambios de hash (en móviles)
+  window.addEventListener('hashchange', handleRouteChange);
+
+  // Forzar a que la URL tenga `#` en lugar de `/` en dispositivos móviles
+  if (window.innerWidth <= 768) {
+    if (!window.location.hash) {
+      window.location.hash = '#landing'; // Configurar la ruta por defecto con hash en móvil
+    }
+  }
 
   handleRouteChange();  // Llamamos a la función para cargar la ruta inicial
 };
