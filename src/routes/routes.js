@@ -7,11 +7,11 @@ import { logout } from '../utils/logOut';
 export const handleRouteChange = () => {
   const app = document.getElementById('app');
   const routes = {
-    'landing': createLandingPage,
-    'acceder': createLoginPage,
-    'registro': createRegisterPage,
-    'salir': logout,
-    'explora': createExploraPage
+    '/landing': createLandingPage,
+    '/acceder': createLoginPage,
+    '/registro': createRegisterPage,
+    '/salir': logout,
+    '/explora': createExploraPage
   };
 
   let pageContainer = document.querySelector('.page-container');
@@ -24,17 +24,7 @@ export const handleRouteChange = () => {
 
   pageContainer.innerHTML = ''; // Limpiamos el contenido dinámico
 
-  const isMobile = window.innerWidth <= 768;  // Ajusta este valor según sea necesario
-
-  let path;
-  if (isMobile) {
-    // Usar hash para móviles
-    path = window.location.hash.slice(1);  // Eliminar el `#` de la URL
-  } else {
-    // Usar pathname para PC
-    path = window.location.pathname.slice(1);  // Eliminar el `/` de la URL
-  }
-
+  const path = window.location.pathname;  // Tomamos el pathname de la URL
   const route = routes[path];
 
   if (route) {
@@ -52,26 +42,6 @@ export const initRouter = () => {
 
   // Añadir un listener para los cambios en la URL (cuando se navega usando el navegador)
   window.addEventListener('popstate', handleRouteChange);
-  
-  // Añadir un listener para los cambios de hash (en móviles)
-  window.addEventListener('hashchange', handleRouteChange);
-
-  // Forzar que la URL tenga `#` en lugar de `/` en móviles
-  if (window.innerWidth <= 768 && !window.location.hash) {
-    window.location.hash = '#landing'; // Configurar la ruta por defecto con hash en móvil
-  }
-
-  // Cambiar las rutas a hash en dispositivos móviles
-  if (window.innerWidth <= 768) {
-    const links = document.querySelectorAll('a');
-    links.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href && href !== '#') {
-        link.setAttribute('href', `#${href}`);  // Convertir todas las rutas a hash
-      }
-    });
-  }
 
   handleRouteChange();  // Llamamos a la función para cargar la ruta inicial
 };
-
