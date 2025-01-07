@@ -45,3 +45,6 @@ body,
   background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
   position: relative;
 }
+.page-container {
+  padding-bottom: 100px;
+}

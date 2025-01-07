@@ -1,3 +1,4 @@
+import { createExploraPage } from '../pages/explora/explora';
 import { createLandingPage } from '../pages/landing/landing';
 import { createLoginPage } from '../pages/login/login';
 import { createRegisterPage } from '../pages/register/register';
@@ -9,7 +10,8 @@ export const handleRouteChange = () => {
     '/landing': createLandingPage,
     '/acceder': createLoginPage,
     '/registro': createRegisterPage,
-    '/salir': logout
+    '/salir': logout,
+    '/explora': createExploraPage
   };
 
   let pageContainer = document.querySelector('.page-container');
