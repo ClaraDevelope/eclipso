@@ -56,11 +56,20 @@ export const initRouter = () => {
   // Añadir un listener para los cambios de hash (en móviles)
   window.addEventListener('hashchange', handleRouteChange);
 
-  // Forzar a que la URL tenga `#` en lugar de `/` en dispositivos móviles
+  // Forzar que la URL tenga `#` en lugar de `/` en móviles
+  if (window.innerWidth <= 768 && !window.location.hash) {
+    window.location.hash = '#landing'; // Configurar la ruta por defecto con hash en móvil
+  }
+
+  // Cambiar las rutas a hash en dispositivos móviles
   if (window.innerWidth <= 768) {
-    if (!window.location.hash) {
-      window.location.hash = '#landing'; // Configurar la ruta por defecto con hash en móvil
-    }
+    const links = document.querySelectorAll('a');
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href !== '#') {
+        link.setAttribute('href', `#${href}`);  // Convertir todas las rutas a hash
+      }
+    });
   }
 
   handleRouteChange();  // Llamamos a la función para cargar la ruta inicial
