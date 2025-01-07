@@ -24,7 +24,16 @@ export const handleRouteChange = () => {
 
   pageContainer.innerHTML = ''; // Limpiamos el contenido dinámico
 
-  const path = window.location.pathname;  // Tomamos el pathname de la URL
+  // Detectar si el dispositivo es móvil o no
+  const isMobile = window.innerWidth <= 768;  // Ajusta este valor según necesites
+
+  let path;
+  if (isMobile) {
+    path = window.location.hash.slice(1);  // Para móviles, usar hash
+  } else {
+    path = window.location.pathname;  // Para PC, usar pathname
+  }
+
   const route = routes[path];
 
   if (route) {
@@ -42,6 +51,8 @@ export const initRouter = () => {
 
   // Añadir un listener para los cambios en la URL (cuando se navega usando el navegador)
   window.addEventListener('popstate', handleRouteChange);
+  window.addEventListener('hashchange', handleRouteChange); // Detectar cambio de hash en móviles
 
   handleRouteChange();  // Llamamos a la función para cargar la ruta inicial
 };
+
