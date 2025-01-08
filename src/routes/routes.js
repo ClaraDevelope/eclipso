@@ -16,6 +16,9 @@ router
   .on('/', () => {
     renderPage(createLandingPage);
   })
+  .on('/comunidad', () =>{
+    renderPage(createLandingPage)
+  })
   .on('/acceder', () => {
     renderPage(createLoginPage);
   })
