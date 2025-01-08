@@ -16,7 +16,7 @@ router
   .on('/', () => {
     renderPage(createLandingPage);
   })
-  .on('/comunidad', () =>{
+  .on('/comunidad', () => {
     renderPage(createLandingPage)
   })
   .on('/acceder', () => {
@@ -35,12 +35,12 @@ router
     pageContainer.innerHTML = '<h1>404 - Página no encontrada</h1>';
   });
 
-  function renderPage(pageFunction) {
-    const pageContainer = document.querySelector('.page-container');
-    pageContainer.innerHTML = '';
-    pageFunction();
-  }
-
+function renderPage(pageFunction) {
+  const pageContainer = document.querySelector('.page-container');
+  pageContainer.innerHTML = '';
+  pageFunction();
+  router.updatePageLinks(); // Actualizar los enlaces después de cada render
+}
 
 
 // import { createExploraPage } from '../pages/explora/explora';

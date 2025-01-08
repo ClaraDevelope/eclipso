@@ -1,24 +1,31 @@
+import { router } from '../../routes/routes';
 import { registerFetch } from '../../utils/registerFetch';
 import './register.css';
 
-
-// ? HABRÍA QUE MARCAR CON ESTILOS LOS INPUTS OBLIGATORIOS Y LOS QUE NO
 export const createRegisterPage = () => {
   const pageContainer = document.querySelector('.page-container');
   pageContainer.innerHTML = '';
 
-  const loginText = document.createElement('p');
-  loginText.classList.add('login-text');
-  loginText.innerHTML = '¿Ya tienes cuenta? <a href="/acceder" class="register-link">Entra aquí</a>';
-
   const registerContainer = document.createElement('div');
   registerContainer.classList.add('register-container');
-  pageContainer.append(registerContainer, loginText);
+  pageContainer.append(registerContainer);
 
   const registerTitle = document.createElement('h2');
   registerTitle.classList.add('register-title');
   registerTitle.innerText = 'Nueva cuenta';
   registerContainer.append(registerTitle);
+
+  const loginText = document.createElement('p');
+  loginText.classList.add('login-text');
+  loginText.innerHTML = '¿Ya tienes cuenta? <a href="#" class="login-link">Entra aquí</a>';
+
+  const loginLink = loginText.querySelector('.login-link');
+  loginLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    router.navigate('/acceder');
+  });
+
+  pageContainer.append(loginText); // Aquí agregamos el loginText de nuevo en el lugar correcto
 
   const slider = document.createElement('div');
   slider.classList.add('form-slider');
@@ -46,7 +53,7 @@ export const createRegisterPage = () => {
   ];
 
   let currentStep = 0;
-  let formData = {}; // Objeto para guardar los datos de cada paso
+  let formData = {};
 
   const renderStep = () => {
     slider.innerHTML = '';
@@ -62,13 +69,12 @@ export const createRegisterPage = () => {
       inputElement.classList.add(input.className);
       inputElement.setAttribute('name', input.name);
       
-      // Si hay datos previos en formData, se los asignamos al input
       if (formData[input.name]) {
         inputElement.value = formData[input.name];
       }
 
       inputElement.addEventListener('input', (e) => {
-        formData[input.name] = e.target.value; // Guardamos los valores en formData
+        formData[input.name] = e.target.value;
       });
 
       formStep.append(inputElement);
@@ -103,7 +109,7 @@ export const createRegisterPage = () => {
       const submitButton = document.createElement('button');
       submitButton.innerText = 'Registrar';
       submitButton.classList.add('submit-button');
-      submitButton.type = 'submit'; // Asegurarnos de que es un botón de tipo submit
+      submitButton.type = 'submit';
       formStep.append(submitButton);
 
       formStep.addEventListener('submit', (e) => {

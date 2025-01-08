@@ -1,5 +1,6 @@
+import { router } from '../../routes/routes';
 import { loginFetch } from '../../utils/loginFetch';
-import './login.css'
+import './login.css';
 
 export const createLoginPage = () => {
   const pageContainer = document.querySelector('.page-container');
@@ -32,18 +33,34 @@ export const createLoginPage = () => {
 
   const registerText = document.createElement('p');
   registerText.classList.add('register-text');
-  registerText.innerHTML = '¿No tienes cuenta? <a href="/registro" class="register-link">Regístrate aquí</a>';
+  registerText.innerHTML = '¿No tienes cuenta? <a href="#" class="register-link">Regístrate aquí</a>';
 
+  // Manejo de la navegación para el enlace de registro
+  const registerLink = registerText.querySelector('.register-link');
+  registerLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    router.navigate('/registro');  // Navegar a la página de registro
+  });
 
   loginButton.addEventListener('click', (event) => {
     event.preventDefault();
     const email = emailInput.value;
     const password = passwordInput.value;
 
-    loginFetch(email, password);
+    loginFetch(email, password)
+      .then((response) => {
+        if (response.success) {
+          router.navigate('/home'); // Navegar a la página principal si el login es exitoso
+        } else {
+          alert('Credenciales incorrectas');
+        }
+      })
+      .catch((error) => {
+        alert('Hubo un problema con el inicio de sesión');
+      });
   });
-
 
   loginForm.append(emailInput, passwordInput, loginButton, registerText);
   loginContainer.append(loginTitle, loginForm);
 };
+
