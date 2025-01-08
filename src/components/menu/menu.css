@@ -45,7 +45,7 @@ a.login {
   backdrop-filter: blur(8px);
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .menu {
     width: 100%;
     flex-direction: column;
@@ -76,6 +76,44 @@ a.login {
     width: 30px;
     height: 25px;
     position: relative;
+  }
+
+  .hamburger:before {
+    content: '☰';
+    font-size: 1.5rem;
+    padding: 1rem 1.3rem;
+    border-radius: 50%;
+    background-color: var(--color-menu-fondo);
+    color: var(--color-fuente-principal);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+} */
+@media (max-width: 768px) {
+  .menu {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 0;
+    gap: 1.5rem;
+    display: none;
+    margin-top: 2.3rem;
+  }
+
+  .menu.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    margin: 0.5rem;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    z-index: 999;
   }
 
   .hamburger:before {

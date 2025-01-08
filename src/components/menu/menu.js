@@ -3,11 +3,13 @@ import { isAuth } from '../../utils/isAuth';
 import './menu.css';
 
 export const createMenu = (authLinks, noAuthLinks) => {
-  const nav = document.querySelector('#menu'); 
+  const nav = document.querySelector('#menu');
+  const hamburger = document.querySelector('#hamburger'); // Asegúrate de seleccionar el hamburger fuera de nav
+
   const links = isAuth() ? authLinks : noAuthLinks;
   isAuth() ? nav.classList.add('auth') : nav.classList.remove('auth');
 
-  nav.innerHTML = '';
+  nav.innerHTML = '';  // Elimina solo el contenido del nav, pero no el hamburger
 
   links.forEach((link) => {
     const a = document.createElement('a');
@@ -26,13 +28,11 @@ export const createMenu = (authLinks, noAuthLinks) => {
     });
   });
 
-  const hamburger = document.createElement('div');
+  // El menú hamburguesa se maneja aquí:
   hamburger.classList.add('hamburger');
   hamburger.addEventListener('click', () => {
     nav.classList.toggle('open');
   });
-
-  nav.prepend(hamburger);
 
   const setMenuVisibility = () => {
     if (window.scrollY > 0) {
@@ -49,6 +49,7 @@ export const createMenu = (authLinks, noAuthLinks) => {
     setMenuVisibility();
   });
 };
+
 
 
 
