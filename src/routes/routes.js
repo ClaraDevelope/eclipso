@@ -10,7 +10,7 @@ const pageContainer = document.createElement('div');
 pageContainer.classList.add('page-container');
 app.appendChild(pageContainer);
 
-export const router = new Navigo('/', { hash: false });
+export const router = new Navigo('/', { hash: true });
 
 router
   .on('/', () => {
