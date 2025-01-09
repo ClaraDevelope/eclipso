@@ -35,22 +35,23 @@ export const createLoginPage = () => {
   registerText.classList.add('register-text');
   registerText.innerHTML = '¿No tienes cuenta? <a href="#" class="register-link">Regístrate aquí</a>';
 
-  // Manejo de la navegación para el enlace de registro
   const registerLink = registerText.querySelector('.register-link');
   registerLink.addEventListener('click', (e) => {
     e.preventDefault();
-    router.navigate('/registro');  // Navegar a la página de registro
+    router.navigate('/registro');  
   });
 
   loginButton.addEventListener('click', (event) => {
     event.preventDefault();
     const email = emailInput.value;
     const password = passwordInput.value;
-
+  
     loginFetch(email, password)
-      .then((response) => {
-        if (response.success) {
-          router.navigate('/home'); // Navegar a la página principal si el login es exitoso
+      .then((data) => {
+        // Verifica si la respuesta es exitosa
+        if (data && data.token) {
+          router.navigate('/');
+          window.location.reload();
         } else {
           alert('Credenciales incorrectas');
         }
@@ -59,6 +60,8 @@ export const createLoginPage = () => {
         alert('Hubo un problema con el inicio de sesión');
       });
   });
+  
+  
 
   loginForm.append(emailInput, passwordInput, loginButton, registerText);
   loginContainer.append(loginTitle, loginForm);

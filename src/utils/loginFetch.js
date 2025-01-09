@@ -1,15 +1,26 @@
 import { request } from "../api/request";
 import { createSkeleton, removeSkeleton } from "../components/loading/loading";
+import { router } from "../routes/routes";
 
 export const saveToken = (token) => {
   localStorage.setItem('authToken', token);
 };
+
+export const saveUserData = (userName, email, _id) => {
+  localStorage.setItem('userName', userName);
+  localStorage.setItem('email', email);
+  localStorage.setItem('userId', _id)
+};
+
 export const loginFetch = async (email, password) => {
   try {
+    console.log('Iniciando login con:', { email, password });
+
     const loginContainer = document.querySelector('.login-container');
     if (loginContainer) {
       loginContainer.remove(); 
     }
+
     const registerContainer = document.querySelector('.register-container');
     const loginText = document.querySelector('.login-text');
     if (registerContainer && loginText) {
@@ -17,28 +28,37 @@ export const loginFetch = async (email, password) => {
       loginText.remove();
     }
 
-    createSkeleton(); // Mostrar el loading skeleton antes de la petición
+    createSkeleton();
 
-    // Simular retraso con setTimeout (para ver el loading)
-    setTimeout(async () => {
-      const data = await request('/auth/login', 'POST', { email, password });
-      if (data.token) {
-        saveToken(data.token);
-        console.log('Token de inicio de sesión:', data.token);
-        window.location.hash = '/landing';
-        window.location.reload();
+    const data = await request('/auth/login', 'POST', { email, password });
+
+    console.log('Respuesta del backend:', data);
+
+    if (data.token) {
+      saveToken(data.token);
+
+      if (data.usuario) {
+        console.log('Datos de usuario recibidos:', data.usuario);
+        saveUserData(data.usuario.userName, data.usuario.email, data.usuario._id);
       }
-    }, 2000); // Retraso de 2 segundos (2000ms)
+   
+      return data;
+    } else {
+      console.warn('No se recibió token en la respuesta.');
 
+      return false;
+    }
   } catch (error) {
     console.error('Error al iniciar sesión:', error);
+    return false;
   } finally {
-    // Esperamos 2 segundos antes de eliminar el skeleton
-    setTimeout(() => {
-      removeSkeleton(); // Eliminar el skeleton después de hacer la petición
-    }, 2000); // 2000 ms = 2 segundos
+    removeSkeleton(); 
   }
 };
+
+
+
+
 // export const loginFetch = async (email, password) => {
 //   try {
 //     createSkeleton()

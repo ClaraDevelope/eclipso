@@ -1,0 +1,54 @@
+/* modalesRespuesta.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1000;
+  display: none;
+  text-align: center;
+}
+
+.modal-success {
+  background-color: #28a745; /* Verde */
+  color: white;
+  border: 2px solid #218838; /* Un verde más oscuro para el borde */
+}
+
+.modal-error {
+  background-color: #dc3545; /* Rojo */
+  color: white;
+  border: 2px solid #c82333; /* Un rojo más oscuro para el borde */
+}
+
+.icon {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+.modal.show {
+  display: block; /* Mostrar el modal */
+}

@@ -1,9 +1,12 @@
 import { createSkeleton, removeSkeleton } from "../components/loading/loading";
+import { router } from "../routes/routes";
 
 export const logout = () => {
   localStorage.removeItem('authToken');
+  localStorage.removeItem('userName')
+  localStorage.removeItem('email')
   createSkeleton()
-  window.location.hash = '#landing';
+  router.navigate('/')
   window.location.reload();
   removeSkeleton()
 };
