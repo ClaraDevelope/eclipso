@@ -1,6 +1,5 @@
 import { request } from "../api/request";
-import { createSkeleton, removeSkeleton } from "../components/loading/loading";
-import { router } from "../routes/routes";
+import { createLoadingSpinner, removeLoadingSpinner,  } from "../components/loading/loading";
 
 export const saveToken = (token) => {
   localStorage.setItem('authToken', token);
@@ -28,7 +27,7 @@ export const loginFetch = async (email, password) => {
       loginText.remove();
     }
 
-    createSkeleton();
+    createLoadingSpinner();
 
     const data = await request('/auth/login', 'POST', { email, password });
 
@@ -52,7 +51,7 @@ export const loginFetch = async (email, password) => {
     console.error('Error al iniciar sesión:', error);
     return false;
   } finally {
-    removeSkeleton(); 
+    removeLoadingSpinner(); 
   }
 };
 

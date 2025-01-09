@@ -4,6 +4,7 @@ import { createLandingPage } from '../pages/landing/landing';
 import { createLoginPage } from '../pages/login/login';
 import { createRegisterPage } from '../pages/register/register';
 import { logout } from '../utils/logOut';
+import { createMyEventsPage } from '../pages/myEvents/myEvents';
 
 const app = document.getElementById('app');
 const pageContainer = document.createElement('div');
@@ -30,6 +31,9 @@ router
   })
   .on('/explora', () => {
     renderPage(createExploraPage);
+  })
+  .on('/mis-eventos', () => {
+    renderPage(createMyEventsPage);
   })
   .notFound(() => {
     pageContainer.innerHTML = '<h1>404 - Página no encontrada</h1>';

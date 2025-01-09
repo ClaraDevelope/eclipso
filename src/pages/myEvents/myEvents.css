@@ -1,0 +1,76 @@
+.my-events-container {
+  margin-top: 4rem;
+  background-color: var(--color-seccion-oscura);
+  color: var(--color-fuente-principal);
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-container {
+  margin-bottom: 10px;
+  width: 150px;
+  height: 150px;
+}
+
+.user-avatar {
+  width: 100%;
+  padding: 15px;
+  border-radius: 50%;
+  border: 3px solid var(--color-enlace-hover);
+  object-fit: cover;
+}
+
+h3 {
+  text-align: center;
+  color: var(--color-fuente-enfatizada);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo de los botones */
+.my-events-button {
+  background-color: var(--color-seccion-oscura);
+  border: 2px solid var(--color-fuente-principal);
+  color: var(--color-fuente-principal);
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 200px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Efecto hover en los botones */
+.my-events-button:hover {
+  background-color: var(--color-enlace);
+  color: var(--color-seccion-oscura);
+  border: 2px solid var(--color-seccion-oscura);
+}
+
+/* Botón activo o seleccionado */
+.my-events-button:focus {
+  outline: none;
+  border: 2px solid var(--color-borde-activo);
+}
+
+/* Para mensajes de error o problemas */
+h1 {
+  color: var(--color-fuente-orcura);
+  font-size: 2rem;
+  text-align: center;
+}

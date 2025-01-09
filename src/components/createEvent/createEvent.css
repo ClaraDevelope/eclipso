@@ -1,0 +1,96 @@
+.create-event-container {
+  padding: 50px;
+  background-color: var(--color-seccion-oscura);
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.event-form label {
+  font-weight: bold;
+  color: var(--color-enlace);
+  margin-bottom: 5px;
+}
+
+.event-form input,
+.event-form textarea,
+.event-form button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--color-fuente-principal);
+  background-color: var(--color-fuente-principal);
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%; /* Para que los inputs ocupen todo el ancho */
+}
+
+.event-form button {
+  background-color: var(--color-fuente-enfatizada);
+  color: var(--color-menu);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.event-form button:hover {
+  background-color: #d3901b;
+}
+
+.event-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-form .form-group input,
+.event-form .form-group textarea {
+  margin-bottom: 15px;
+}
+
+.event-form .form-group label {
+  margin-bottom: 8px;
+}
+
+.event-form #etiquetas {
+  border: 1px solid #ddd;
+  background-color: var(--color-fuente-principal);
+  color: #333;
+}
+.event-form #etiquetas:focus,
+.event-form input:focus,
+.event-form textarea:focus,
+.event-form button:focus {
+  outline: 1px solid var(--color-enlace);
+}
+
+.event-form input[type='file'] {
+  display: none; /* Ocultamos el input real */
+}
+
+.event-form .file-upload-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--color-boton-fondo);
+  color: var(--color-fuente-principal);
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.event-form .file-upload-label:hover {
+  background-color: #484096; /* Color más oscuro al pasar el cursor */
+}
+
+.event-form .file-upload-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--color-fuente-principal);
+}

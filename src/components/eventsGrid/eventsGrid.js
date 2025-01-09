@@ -1,6 +1,7 @@
 import { request } from '../../api/request';
 import { router } from '../../routes/routes';
 import { isAuth } from '../../utils/isAuth';
+import { formAsistencia } from '../formAsistencia/formAsistencia';
 import { openModal } from '../modalesResuesta/modalesRespuesta';
 import './eventsGrid.css';
 
@@ -94,10 +95,26 @@ const handleQuieroIr = async (eventId) => {
       console.error('No se encontraron datos de usuario en localStorage.');
     }
   } else {
-    console.log('Usuario no autenticado. Redirigiendo a login...');
-    router.navigate('/acceder');
+    console.log('Usuario no autenticado');
+    const formContainer = formAsistencia(eventId); // Crear formulario
+    
+    // Intentamos obtener el contenedor modal-container
+    let modalContainer = document.getElementById('modal-container');
+    
+    // Si no existe, lo creamos
+    if (!modalContainer) {
+      modalContainer = document.createElement('div');
+      modalContainer.id = 'modal-container';
+      document.body.appendChild(modalContainer); // Añadimos al body o donde necesites
+    }
+
+    modalContainer.innerHTML = ''; // Limpiamos cualquier contenido previo
+    modalContainer.appendChild(formContainer); // Añadimos el formulario
   }
 };
+;
+
+
 
 
 
