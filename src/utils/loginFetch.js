@@ -1,5 +1,6 @@
 import { request } from "../api/request";
 import { createLoadingSpinner, removeLoadingSpinner,  } from "../components/loading/loading";
+import { router } from "../routes/routes";
 
 export const saveToken = (token) => {
   localStorage.setItem('authToken', token);
@@ -35,10 +36,11 @@ export const loginFetch = async (email, password) => {
 
     if (data.token) {
       saveToken(data.token);
-
       if (data.usuario) {
         console.log('Datos de usuario recibidos:', data.usuario);
         saveUserData(data.usuario.userName, data.usuario.email, data.usuario._id);
+        window.location.reload()
+        router.navigate('/explora')
       }
    
       return data;

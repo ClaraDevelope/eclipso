@@ -3,8 +3,11 @@ import { createExploraPage } from '../pages/explora/explora';
 import { createLandingPage } from '../pages/landing/landing';
 import { createLoginPage } from '../pages/login/login';
 import { createRegisterPage } from '../pages/register/register';
-import { logout } from '../utils/logOut';
+import { logout } from '../utils/logout';
 import { createMyEventsPage } from '../pages/myEvents/myEvents';
+import { initializeFavorites } from '../components/eventsGrid/eventsGrid';
+import { isAuth } from '../utils/isAuth';
+import { createProfilePage } from '../pages/profile/profile';
 
 const app = document.getElementById('app');
 const pageContainer = document.createElement('div');
@@ -15,10 +18,14 @@ export const router = new Navigo('/', { hash: true });
 
 router
   .on('/', () => {
-    renderPage(createLandingPage);
+    if (isAuth()) { 
+      renderPage(createExploraPage);
+    } else {
+      renderPage(createLandingPage);
+    }
   })
   .on('/comunidad', () => {
-    renderPage(createLandingPage)
+    renderPage(createLandingPage);
   })
   .on('/acceder', () => {
     renderPage(createLoginPage);
@@ -28,23 +35,52 @@ router
   })
   .on('/salir', () => {
     logout();
+    renderPage(createLandingPage)
   })
   .on('/explora', () => {
     renderPage(createExploraPage);
   })
   .on('/mis-eventos', () => {
-    renderPage(createMyEventsPage);
+    if (isAuth()) { 
+      renderPage(createMyEventsPage);
+    } else {
+      renderPage(createLandingPage);
+    }
+   
+  })
+
+  .on('/perfil', () => {
+    if (isAuth()) { 
+      renderPage(createProfilePage);
+    } else {
+      renderPage(createLandingPage);
+    }
+
+  })
+  .on('*', () => {
+    if (isAuth()) { // También aquí
+      renderPage(() => {
+        initializeFavorites();
+      });
+    }
   })
   .notFound(() => {
     pageContainer.innerHTML = '<h1>404 - Página no encontrada</h1>';
   });
 
+
+
 function renderPage(pageFunction) {
   const pageContainer = document.querySelector('.page-container');
-  pageContainer.innerHTML = '';
-  pageFunction();
-  router.updatePageLinks(); // Actualizar los enlaces después de cada render
+  if (!pageContainer) {
+    console.error('No se encontró el contenedor de la página');
+    return;
+  }
+  pageContainer.innerHTML = ''; 
+  pageFunction(); 
+  router.updatePageLinks(); 
 }
+
 
 
 // import { createExploraPage } from '../pages/explora/explora';

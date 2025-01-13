@@ -25,7 +25,7 @@ export const createRegisterPage = () => {
     router.navigate('/acceder');
   });
 
-  pageContainer.append(loginText); // Aquí agregamos el loginText de nuevo en el lugar correcto
+  pageContainer.append(loginText); 
 
   const slider = document.createElement('div');
   slider.classList.add('form-slider');

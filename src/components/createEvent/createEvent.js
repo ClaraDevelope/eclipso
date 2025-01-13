@@ -6,8 +6,9 @@ import './createEvent.css';
 export const createEvent = (userId) => {
   const existingForm = document.querySelector('.event-form');
   if (existingForm) {
-    return existingForm; s
+    return existingForm;
   }
+
   const createEventContainer = document.createElement('div');
   createEventContainer.classList.add('create-event-container');
 
@@ -42,7 +43,6 @@ export const createEvent = (userId) => {
   ubicacionInput.type = 'text';
   ubicacionInput.required = true;
 
-
   const descripcionLabel = document.createElement('label');
   descripcionLabel.setAttribute('for', 'descripcion');
   descripcionLabel.textContent = 'Descripción del evento';
@@ -51,7 +51,6 @@ export const createEvent = (userId) => {
   descripcionInput.name = 'descripcion';
   descripcionInput.rows = '4';
   descripcionInput.cols = '50';
-
 
   const precioLabel = document.createElement('label');
   precioLabel.setAttribute('for', 'precio');
@@ -71,19 +70,17 @@ export const createEvent = (userId) => {
   cartelInput.name = 'cartel';
   cartelInput.type = 'file';
   cartelInput.accept = 'image/*';
-cartelLabel.classList.add('file-upload-label');
+  cartelLabel.classList.add('file-upload-label');
 
-const fileInfo = document.createElement('span');
-fileInfo.classList.add('file-upload-info');
-fileInfo.textContent = 'Ningún archivo seleccionado';
+  const fileInfo = document.createElement('span');
+  fileInfo.classList.add('file-upload-info');
+  fileInfo.textContent = 'Ningún archivo seleccionado';
 
-
-cartelInput.addEventListener('change', () => {
-  fileInfo.textContent = cartelInput.files.length
-    ? cartelInput.files[0].name
-    : 'Ningún archivo seleccionado';
-});
-
+  cartelInput.addEventListener('change', () => {
+    fileInfo.textContent = cartelInput.files.length
+      ? cartelInput.files[0].name
+      : 'Ningún archivo seleccionado';
+  });
 
   const etiquetasLabel = document.createElement('label');
   etiquetasLabel.setAttribute('for', 'etiquetas');
@@ -119,18 +116,24 @@ cartelInput.addEventListener('change', () => {
     event.preventDefault();
   
     const formData = new FormData(formEvent); 
+
+    if (!formData.has('cartel') || formData.get('cartel') === '') {
+      formData.set('cartel', '/ticket-retro.webp');
+    }
+
     const token = localStorage.getItem('authToken');
     const headers = { 'Authorization': `Bearer ${token}` };
-    showLoading(submitButton)
+    showLoading(submitButton);
+    
     try {
       const response = await request(`/auth/${userId}/create`, 'POST', formData, headers);
       console.log('Evento creado con éxito:', response);
-      openModal('success', title ='¡Evento creado con éxito!', message='¡Enhorabuena!')
+      openModal('success', '¡Evento creado con éxito!', '¡Enhorabuena!');
     } catch (error) {
       console.error('Error al crear el evento:', error);
-      openModal('error', title ='Error al crear el evento', message='Inténtalo más tarde')
-    }finally{
-      hideLoading(submitButton)
+      openModal('error', 'Error al crear el evento', 'Inténtalo más tarde');
+    } finally {
+      hideLoading(submitButton);
     }
   });
 

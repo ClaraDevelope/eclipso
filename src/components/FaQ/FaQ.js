@@ -28,7 +28,6 @@ export const createFaq = (faqs) => {
     answer.style.display = 'none';
 
     question.addEventListener('click', () => {
-      // Mostramos/ocultamos solo la respuesta correspondiente, sin afectar a los demás
       const isVisible = answer.style.display === 'block';
       answer.style.display = isVisible ? 'none' : 'block';
       faqCard.classList.toggle('active', !isVisible);

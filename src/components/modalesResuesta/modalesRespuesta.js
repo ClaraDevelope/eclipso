@@ -2,11 +2,11 @@ import './modalesRespuesta.css'
 
 export function createSuccessModal(title = '¡Te has registrado correctamente!', message = 'Recibirás un correo con los detalles en tu bandeja de entrada.') {
   const modal = document.createElement('div');
-  modal.classList.add('modal', 'modal-success'); // Clase para éxito (verde)
+  modal.classList.add('modal', 'modal-success');
   
   const icon = document.createElement('div');
   icon.classList.add('icon');
-  icon.innerHTML = '✔️'; // Check icon
+  icon.innerHTML = '✓';
 
   const modalTitle = document.createElement('h3');
   modalTitle.innerText = title;
@@ -33,7 +33,7 @@ export function createErrorModal(title = '¡Error al registrarse!', message = 'N
   
   const icon = document.createElement('div');
   icon.classList.add('icon');
-  icon.innerHTML = '❌'; 
+  icon.innerHTML = '×'; 
 
   const modalTitle = document.createElement('h3');
   modalTitle.innerText = title;

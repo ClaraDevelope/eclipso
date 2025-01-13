@@ -2,9 +2,9 @@
 
 :root {
   /* Colores principales */
-  --color-fuente-principal: #d0cece; /* Gris muy claro para el texto general */
+  --color-fuente-principal: #dfdede; /* Gris muy claro para el texto general */
   --color-fuente-secundaria: #b0b0b0; /* Gris medio para texto secundario */
-  --color-fuente-orcura: rgb(50, 47, 47); /*más negro*/
+  --color-fuente-oscura: rgb(50, 47, 47); /*más negro*/
   --color-fuente-azul-fondo: #0f0c29;
   --color-fuente-enfatizada: #ffae22; /* Blanco suave para títulos y texto destacado */
 
@@ -39,7 +39,7 @@ a {
 }
 body,
 #app {
-  min-height: 100svh;
+  min-height: 110svh;
   background: #0f0c29;
   background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
   background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
@@ -47,4 +47,5 @@ body,
 }
 .page-container {
   padding-bottom: 100px;
+  min-height: 110svh;
 }

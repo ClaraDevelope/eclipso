@@ -1,0 +1,27 @@
+.title-no-events {
+  margin-top: 50px;
+}
+
+.modal-no-events {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-no-events-content {
+  background-color: var(--color-boton-fondo);
+  color: var(--color-fuente-enfatizada);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

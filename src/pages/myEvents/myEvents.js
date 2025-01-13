@@ -1,7 +1,7 @@
-
 import { request } from '../../api/request';
 import { createEvent } from '../../components/createEvent/createEvent';
 import { createMyEventsGrid } from '../../components/myEventsGrid/myEventsGrid';
+import { createMyFavoriteEvents } from '../../components/myFavoriteEvents/myFavoriteEvents';
 import './myEvents.css';
 
 export const createMyEventsPage = async () => {
@@ -41,8 +41,7 @@ export const createMyEventsPage = async () => {
     createEventButton.classList.add('my-events-button');
     createEventButton.addEventListener('click', () => {
       console.log('Crear un evento');
-      
-      // Busca y elimina elementos existentes
+
       const existingForm = document.querySelector('.create-event-container');
       if (existingForm) {
         existingForm.remove(); 
@@ -51,8 +50,14 @@ export const createMyEventsPage = async () => {
       if (existingEventsGrid) {
         existingEventsGrid.remove();
       } 
-    
-      // Agrega el formulario al contenedor
+      const existingEventsFavoriteGrid = document.querySelector('#my-favorite-events-grid');
+      if (existingEventsFavoriteGrid) {
+        existingEventsFavoriteGrid.remove();
+      } 
+      // const existingTitle = document.querySelector('#title-no-events');
+      // if (existingTitle) {
+      //   existingTitle.remove();
+      // }
       pageContainer.appendChild(createEvent(userId));
     });
     
@@ -62,15 +67,27 @@ export const createMyEventsPage = async () => {
     myEventsButton.classList.add('my-events-button');
     myEventsButton.addEventListener('click', async () => {
       console.log('Ver mis eventos organizados');
-      const existingEventsGrid = document.querySelector('#my-events-grid');
-      if (existingEventsGrid) {
-        existingEventsGrid.remove();
-      } 
       const existingForm = document.querySelector('.event-form');
       if (existingForm) {
         existingForm.remove(); 
       }     
       try {
+        const existingEventsGrid = document.querySelector('#my-events-grid');
+        if (existingEventsGrid) {
+          existingEventsGrid.remove();
+        } 
+        const existingEventsFavoriteGrid = document.querySelector('#my-favorite-events-grid');
+        if (existingEventsFavoriteGrid) {
+          existingEventsFavoriteGrid.remove();
+        } 
+        const existingMyFavoriteEventsTitle = document.querySelector('.title-no-events');
+        if(existingMyFavoriteEventsTitle){
+          existingMyFavoriteEventsTitle.remove();
+        }
+        // const existingTitle = document.querySelector('#title-no-events');
+        // if (existingTitle) {
+        //   existingTitle.remove();
+        // }
         const eventsGrid = await createMyEventsGrid(userId);
         pageContainer.appendChild(eventsGrid);
       } catch (error) {
@@ -82,22 +99,44 @@ export const createMyEventsPage = async () => {
     const favoriteEventsButton = document.createElement('button');
     favoriteEventsButton.textContent = 'Eventos Favoritos';
     favoriteEventsButton.classList.add('my-events-button');
-    favoriteEventsButton.addEventListener('click', () => {
+    favoriteEventsButton.addEventListener('click', async () => {
       console.log('Ver mis eventos favoritos');
- 
+      // const existingTitle = document.querySelector('#title-no-events');
+      // if (existingTitle) {
+      //   existingTitle.remove();
+      // } 
+      try {
+        const existingEventsGrid = document.querySelector('#my-events-grid');
+        if (existingEventsGrid) {
+          existingEventsGrid.remove();
+        }
+        const existingForm = document.querySelector('.event-form');
+        if (existingForm) {
+          existingForm.remove();
+        }
+        const existingEventsFavoriteGrid = document.querySelector('#my-favorite-events-grid');
+        if (existingEventsFavoriteGrid) {
+          existingEventsFavoriteGrid.remove();
+        } 
+        const eventsGrid = await createMyFavoriteEvents(userId);
+        if (eventsGrid) {
+          pageContainer.appendChild(eventsGrid);
+        }
+      } catch (error) {
+        console.error('Error al cargar la cuadrícula de eventos:', error);
+      }
     });
+
 
 
     buttonsContainer.appendChild(createEventButton);
     buttonsContainer.appendChild(myEventsButton);
     buttonsContainer.appendChild(favoriteEventsButton);
 
-    // Añadir todo al contenedor principal
     container.appendChild(avatarContainer);
     container.appendChild(greeting);
     container.appendChild(buttonsContainer);
 
-    // Agregar el contenedor a la página
     pageContainer.appendChild(container);
   } catch (error) {
     console.error('Error al obtener los datos del usuario:', error);

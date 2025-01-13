@@ -1,0 +1,114 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  max-width: 950px;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--color-seccion-oscura);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25), 0 1px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bento-item {
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.avatar-container img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--color-enlace-hover);
+  object-fit: cover;
+}
+
+.file-upload-label {
+  margin-top: 5px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--color-boton-fondo);
+  color: var(--color-fuente-principal) !important;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.file-upload-label:hover {
+  background-color: #484096;
+}
+
+.bento-item label {
+  font-size: 16px;
+  color: var(--color-enlace);
+  font-weight: 600;
+}
+
+.bento-item [type='file'] {
+  display: none;
+}
+
+.bento-item input[type='text'],
+.bento-item input[type='tel'],
+.bento-item input[type='date'],
+.bento-item input[type='password'] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  margin-top: 8px;
+  background-color: var(--color-fuente-principal);
+  color: var(--color-fuente-orcura);
+  font-weight: 600;
+}
+
+.bento-item input[type='text']:focus,
+.bento-item input[type='tel']:focus,
+.bento-item input[type='date']:focus,
+.bento-item input[type='password']:focus {
+  border-color: var(--color-enlace);
+  outline: none;
+}
+.edit-profile-button {
+  padding: 10px;
+  border-radius: 5px;
+  width: 50%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-fuente-enfatizada);
+  color: var(--color-menu);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.edit-profile-button:hover {
+  background-color: #ffb940;
+}

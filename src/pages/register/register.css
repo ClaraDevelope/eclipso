@@ -37,8 +37,8 @@
   outline: none;
   font-weight: 500;
   transition: border-color 0.3s ease;
-  background-color: var(--color-seccion-fondo);
-  color: var(--color-fuente-principal);
+  background-color: var(--color-fuente-principal);
+  color: var(--color-fuente-oscura);
 }
 .email-input::placeholder,
 .password-input::placeholder,
@@ -46,11 +46,15 @@
 .confirm-password-input::placeholder,
 .phone-input::placeholder,
 .birthdate-input::placeholder {
-  color: var(--color-fuente-principal);
+  color: var(--color-fuente-oscura);
 }
 
 .email-input:focus,
-.password-input:focus {
+.password-input:focus,
+.name-input:focus,
+.confirm-password-input:focus,
+.phone-input:focus,
+.birthdate-input:focus {
   border-color: var(--color-fuente-enfatizada);
 }
 

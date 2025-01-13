@@ -19,7 +19,6 @@
 
 .user-avatar {
   width: 100%;
-  padding: 15px;
   border-radius: 50%;
   border: 3px solid var(--color-enlace-hover);
   object-fit: cover;

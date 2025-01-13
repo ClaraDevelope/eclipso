@@ -1,14 +1,14 @@
 export const faqs = [
   {
-    question: "¿Dónde se realiza el evento?",
-    answer: "El evento se realiza en el Centro de Convenciones de la Ciudad."
+    question: "¿Dónde se realizan los eventos?",
+    answer: "Los eventos se realizan en el lugar elegido por quien los organiza. Podrás ver la dirección exacta en la página de cada evento."
   },
   {
-    question: "¿Cuáles son los horarios?",
-    answer: "El evento comienza a las 10:00 AM y finaliza a las 8:00 PM."
+    question: "¿Hay un horario fijo para los eventos?",
+    answer: "No, cada organizador/a decide el horario de su evento. Consulta los detalles específicos en la página del evento que te interese."
   },
   {
-    question: "¿Necesito registrarme previamente?",
-    answer: "Sí, puedes registrarte en nuestra página web antes del evento."
+    question: "¿Debo registrarme para participar u organizar un evento?",
+    answer: "Sí, necesitas crear una cuenta en nuestra web para organizar eventos o unirte como asistente."
   }
 ];

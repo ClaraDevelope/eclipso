@@ -24,8 +24,8 @@
 }
 
 /* Estilos de los inputs */
-.email-input,
-.password-input {
+.login-form .email-input,
+.login-form .password-input {
   padding: 12px;
   font-size: 1rem;
   border: 1px solid var(--color-borde);
@@ -33,12 +33,12 @@
   outline: none;
   font-weight: 500;
   transition: border-color 0.3s ease;
-  background-color: var(--color-seccion-fondo);
-  color: var(--color-fuente-principal);
+  background-color: var(--color-fuente-principal);
+  color: var(--color-fuente-oscura);
 }
-.email-input::placeholder,
-.password-input::placeholder {
-  color: var(--color-fuente-principal);
+.login-form .email-input::placeholder,
+.login-form .password-input::placeholder {
+  color: var(--color-fuente-oscura);
 }
 
 .email-input:focus,

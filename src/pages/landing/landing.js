@@ -39,7 +39,7 @@ export const createLandingPage = () => {
   box2.style.gridColumn = 'span 2';
   box2.style.gridRow = 'span 1';
   const content2 = document.createElement('p');
-  content2.innerHTML = "Explore los momentos más destacados de eventos pasados y planifique su participación en los próximos encuentros.";
+  content2.innerHTML = "Explora los momentos más destacados de eventos pasados y planifique su participación en los próximos encuentros.";
   box2.appendChild(content2);
 
   const box3 = document.createElement('div');
@@ -60,7 +60,7 @@ export const createLandingPage = () => {
   const img4 = document.createElement('img');
   img4.src = '/movie-night.webp'; 
   const content4 = document.createElement('p');
-  content4.innerHTML = "Únase a una red vibrante de colaboradores, desde <strong>expertos locales</strong> hasta <strong>líderes de la comunidad.</strong>";
+  content4.innerHTML = "Únase a una red vibrante de colaboradores, desde <strong>gente con ganas de compartir y pasar un buen rato</strong> hasta <strong>expertos locales y líderes de la comunidad.</strong>";
   box4.appendChild(img4);
   box4.appendChild(content4);
 
@@ -71,7 +71,7 @@ export const createLandingPage = () => {
   const img5 = document.createElement('img');
   img5.src = '/backyard-party-lighting.webp'; 
   const content5 = document.createElement('p');
-  content5.innerHTML = "<strong>Regístrese ahora</strong> y asegure su lugar en el próximo evento diseñado para inspirar e innovar.";
+  content5.innerHTML = "<strong>Regístrate ahora</strong> y asegure su lugar en el próximo evento diseñado para inspirar e innovar.";
   
   const registerButton = document.createElement('button');
   registerButton.classList.add('register-landing-button');

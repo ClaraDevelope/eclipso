@@ -34,6 +34,8 @@ export const request = async (endpoint, method = 'GET', body = null, headers = {
     }
 
     const data = await response.json();
+    console.log(data);
+    
     return data;
   } catch (error) {
     console.error('Request failed', error);

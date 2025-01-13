@@ -23,15 +23,15 @@
 }
 
 .modal-success {
-  background-color: #28a745; /* Verde */
-  color: white;
-  border: 2px solid #218838; /* Un verde más oscuro para el borde */
+  background-color: #1c7831;
+  color: var(--color-fuente-principal);
+  border: 2px solid #218838;
 }
 
 .modal-error {
-  background-color: #dc3545; /* Rojo */
-  color: white;
-  border: 2px solid #c82333; /* Un rojo más oscuro para el borde */
+  background-color: #b10606;
+  color: var(--color-fuente-principal);
+  border: 2px solid #b10606;
 }
 
 .icon {

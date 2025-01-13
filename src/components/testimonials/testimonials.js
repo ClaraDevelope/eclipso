@@ -20,12 +20,12 @@ export const createTestimonials = () => {
     },
     {
       avatar: '/avatar2test.webp', 
-      text: 'Un espacio donde compartir conocimientos y aprender de otros expertos locales. ¡Es increíble!',
+      text: 'Un espacio donde compartir conocimientos y aprender de otras expertas locales. ¡Es increíble!',
       name: 'Laura Gómez',
     },
     {
       avatar: '/avatar3.webp', 
-      text: 'Participar en los eventos ha sido una experiencia transformadora. Me encanta formar parte de esta red.',
+      text: 'Participar en los eventos culturales está siendo una experiencia transformadora. Me encanta formar parte de esta red.',
       name: 'Ana López',
     },
   ];

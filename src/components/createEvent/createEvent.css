@@ -26,7 +26,7 @@
   background-color: var(--color-fuente-principal);
   font-size: 16px;
   font-weight: 500;
-  width: 100%; /* Para que los inputs ocupen todo el ancho */
+  width: 100%;
 }
 
 .event-form button {
@@ -86,7 +86,7 @@
 }
 
 .event-form .file-upload-label:hover {
-  background-color: #484096; /* Color más oscuro al pasar el cursor */
+  background-color: #484096;
 }
 
 .event-form .file-upload-info {
