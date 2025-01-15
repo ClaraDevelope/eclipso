@@ -19,7 +19,7 @@ export const createExploraPage = async () => {
 
   const fetchTags = async () => {
     try {
-      const response = await request('/eventos');
+      const response = await request('/eventos/');
       if (Array.isArray(response)) {
         const tags = new Set();
         response.forEach(event => event.etiquetas.forEach(tag => tags.add(tag)));
